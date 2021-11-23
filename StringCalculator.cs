@@ -11,7 +11,7 @@ namespace StringCalculatorKataTDD
 
             var result = numbers.Split(',').Select(s => int.Parse(s)).Sum();
             return result;
-            return int.Parse(numbers);
+
         }
     }
 }
