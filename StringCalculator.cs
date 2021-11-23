@@ -4,9 +4,11 @@ namespace StringCalculatorKataTDD
 {
     public class StringCalculator
     {
-        internal object Add(string v)
+        internal object Add(string numbers)
         {
-            return 0;
+            if (String.IsNullOrEmpty(numbers)) return 0;
+            
+            return 1;
         }
     }
 }
