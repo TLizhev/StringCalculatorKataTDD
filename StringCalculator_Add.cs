@@ -55,5 +55,17 @@ namespace StringCalculatorKataTDD
             var result = calculator.Add(numbers);
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("-1,2","Negatives not allowed")]
+
+        public void ThrowsGivenNegativeInputs(string numbers,string expectedResult)
+        {
+            Action action = () => calculator.Add(numbers);
+
+           var ex = Assert.Throws<Exception>(action);
+           
+            Assert.Equal(expectedResult, ex.Message);
+        }
     }
 }
