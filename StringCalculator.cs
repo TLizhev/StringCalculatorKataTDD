@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StringCalculatorKataTDD
@@ -8,8 +9,19 @@ namespace StringCalculatorKataTDD
         internal object Add(string numbers)
         {
             if (String.IsNullOrEmpty(numbers)) return 0;
-            char [] delimiters = new char[] { ',', '\n' };
-            var result = numbers.Split(delimiters).Select(s => int.Parse(s)).Sum();
+            var delimiters = new List<char> { ',', '\n' };
+            string numberString = numbers;
+
+            if (numberString.StartsWith("//"))
+            {
+                var splitInput = numberString.Split('\n');
+                var newDelimiter = splitInput.First().Trim('/');
+                numberString = string.Join('\n', splitInput.Skip(1));
+
+                delimiters.Add(Convert.ToChar(newDelimiter));
+            }
+
+            var result = numberString.Split(delimiters.ToArray()).Select(s => int.Parse(s)).Sum();
             return result;
 
         }
