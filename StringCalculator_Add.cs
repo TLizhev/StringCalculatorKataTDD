@@ -14,6 +14,7 @@ namespace StringCalculatorKataTDD
         }        
         [Theory]
         [InlineData("1",1)]
+        [InlineData("2",2)]
         public void ReturnsOneGivenStringWithOne(string numbers,int expectedResult)
         {
             var calculator = new StringCalculator();
