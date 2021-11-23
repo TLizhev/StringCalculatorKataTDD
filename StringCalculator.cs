@@ -31,7 +31,7 @@ namespace StringCalculatorKataTDD
 
                 throw new Exception("Negatives not allowed");
             }
-            var result = numberList.Sum();
+            var result = numberList.Where(n=>n<=1000).Sum();
             return result;
 
         }
